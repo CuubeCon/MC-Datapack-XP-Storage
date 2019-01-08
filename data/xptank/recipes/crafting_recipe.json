@@ -1,0 +1,26 @@
+{
+    "type": "crafting_shaped",
+    "group": "stuff",
+    "pattern": [
+        "#E#",
+        "DGD",
+        "#E#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:redstone_block"
+        },
+        "E": {
+            "item": "minecraft:emerald_block"
+        },
+        "D": {
+            "item": "minecraft:diamond_block"
+        },
+        "G": {
+            "item": "minecraft:glass_bottle"
+        }
+    },
+    "result": {
+        "item": "minecraft:experience_bottle"
+    }
+}

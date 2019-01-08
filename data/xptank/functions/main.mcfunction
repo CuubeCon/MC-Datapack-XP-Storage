@@ -1,0 +1,9 @@
+execute as @r at @s as @s if score @s cc_xptank_sneak matches 1.. if entity @e[limit=1,type=minecraft:armor_stand,dy=-1,nbt={CustomName:"{\"text\":\"XP Tank\"}"}] if block ~ ~ ~ minecraft:iron_trapdoor[open=false] if block ~ ~-0.2 ~ minecraft:cauldron run function xptank:check_xp
+execute as @r at @s as @s if score @s cc_xptank_sneak matches 1.. if entity @e[limit=1,type=minecraft:armor_stand,dy=-1,nbt={CustomName:"{\"text\":\"XP Tank\"}"}] if block ~ ~0.8 ~ minecraft:iron_trapdoor[open=true] if block ~ ~-0.2 ~ minecraft:cauldron run function xptank:check_xp2
+scoreboard players reset @a[scores={cc_xptank_sneak=1..}] cc_xptank_sneak
+#Create XP Tank (add crafting recipe)
+execute as @r at @s as @e[type=item,distance=..6,nbt={OnGround:1b,Item:{id:"minecraft:experience_bottle", Count:1b}}] at @s if block ~ ~ ~ minecraft:iron_trapdoor if block ~ ~-.5 ~ minecraft:cauldron unless entity @e[type=minecraft:armor_stand,dy=-1,nbt={CustomName:"{\"text\":\"XP Tank\"}"}] run function xptank:create
+#Show current level storage
+execute as @r at @s as @s if entity @e[limit=1,type=minecraft:armor_stand,dy=-1,nbt={CustomName:"{\"text\":\"XP Tank\"}"}] if block ~ ~0.5 ~ minecraft:iron_trapdoor if block ~ ~-0.2 ~ minecraft:cauldron run title @s actionbar ["",{"text":"XP Storage: ","color":"gold"},{"score":{"name":"@e[limit=1,type=minecraft:armor_stand,dy=-1,nbt={CustomName:\"{\\\"text\\\":\\\"XP Tank\\\"}\"}]","objective":"cc_xptank"},"color":"yellow"},{"text":" levels","color":"gold"}]
+#Remove XP Tank (Nametag with "Remove XP Tank")
+execute as @r at @s as @e[type=item,distance=..6,nbt={OnGround:1b,Item:{id:"minecraft:name_tag", Count:1b,tag:{display:{Name:"{\"text\":\"Remove XP Tank\"}"}}}}] at @s if entity @e[limit=1,type=minecraft:armor_stand,dy=-1,nbt={CustomName:"{\"text\":\"XP Tank\"}"}] if block ~ ~0.5 ~ minecraft:iron_trapdoor if block ~ ~-0.2 ~ minecraft:cauldron run function xptank:remove

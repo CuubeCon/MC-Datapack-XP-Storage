@@ -1,0 +1,3 @@
+execute as @s if score @e[limit=1,type=minecraft:armor_stand,dy=-1,nbt={CustomName:"{\"text\":\"XP Tank\"}"}] cc_xptank matches 1.. run function xptank:add_xp
+execute as @s if score @e[limit=1,type=minecraft:armor_stand,dy=-1,nbt={CustomName:"{\"text\":\"XP Tank\"}"}] cc_xptank matches 0 run title @s actionbar ["",{"text":"XP Storage is empty","color":"gold"}]
+title @s actionbar ["",{"text":"XP Storage: ","color":"gold"},{"score":{"name":"@e[limit=1,type=minecraft:armor_stand,dy=-1,nbt={CustomName:\"{\\\"text\\\":\\\"XP Tank\\\"}\"}]","objective":"cc_xptank"},"color":"yellow"},{"text":" levels","color":"gold"}]
